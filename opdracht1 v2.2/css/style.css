@@ -1,0 +1,274 @@
+/* -------------------------------- ALGEMEEN------------------------- */
+
+html {
+    box-sizing: border-box;
+    /* https://css-tricks.com/box-sizing/ */
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+body {
+    color: #807C7C;
+}
+
+
+@font-face {
+    font-family: 'Helvetica';
+    src: url('font/Helvetica.ttc');
+}
+
+
+body {
+    font-family: 'Helvetica';
+}
+
+body {
+    /*    margin: 3em;*/
+    margin: 0em;
+}
+
+
+/* ------------------------------- HEADER ------------------------------- */
+
+
+header {
+
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    /* bron: https://css-tricks.com/introduction-fr-css-unit/*/
+    margin: 1em 1em 0em 1em;
+}
+
+header section {
+    align-self: center;
+    margin-left: 3.5em;
+}
+
+
+header img {
+
+    width: 15em;
+    border-radius: 0.5em;
+    margin: 1em;
+
+}
+
+/* knop play en shuffle */
+
+header section div p {
+    background-color: grey;
+    width: 5em;
+    text-align: center;
+    color: white;
+    border-radius: 0.5em;
+    display: inline-block;
+    padding: 0.2em;
+}
+
+/* button */
+
+header button {
+    border-radius: 0.5em;
+    font-family: 'Helvetica';
+    background-color: #C7C9C6;
+    color: white;
+    border: none;
+    transition: .5s;
+    font-size: 1em;
+    width: 8em;
+    text-transform: uppercase;
+    padding: 0.5em;
+
+}
+
+header button:nth-child(3) {
+    background-color: #8A8B89;
+    cursor: pointer;
+}
+
+header button:focus {
+    outline: none;
+}
+
+/* wijzigen knop */
+
+.wijzigen button:nth-child(3) {
+    transition: .5s;
+    background-color: #515251;
+}
+
+
+/* verstoppen van de afbeelding */
+
+main table tr td:first-child {
+    visibility: hidden;
+}
+
+
+/* toevoegen class = wijzigen  wanneer javascript wordt geactiveerd en voert de volgende css uit*/
+
+.wijzigen table {
+    border-spacing: 0em 1em;
+}
+
+.wijzigen table tr td:first-child {
+    visibility: visible;
+    border-left: 0.01em solid #807C7C;
+}
+
+.wijzigen table tr td {
+    border-top: 0.01em solid #807C7C;
+}
+
+.wijzigen table tr td:last-child {
+    border-right: 0.01em solid #807C7C;
+}
+
+/* button  */
+
+.wijzigen button:nth-child(3) {
+    transition: .5s;
+    background-color: #515251;
+}
+
+
+/* ------------------------------- MAIN ------------------------------- */
+
+
+main {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    margin: 0em 1em 1em 1em;
+}
+
+
+
+table {
+    grid-column: 2;
+    /* bron: https://css-tricks.com/snippets/css/complete-guide-grid/ kopje grid-column grid-row*/
+    justify-content: space-around;
+
+
+}
+
+/* de nummers */
+
+main table tr {
+    text-align: left;
+    background-color: white;
+}
+
+
+main table th {
+    font-weight: normal;
+    text-transform: uppercase;
+    /* bron: https://css-tricks.com/almanac/properties/f/font-variant/*/
+}
+
+main table {
+    border-spacing: 0em;
+    /* bron: Duckett, J. (2012). HTML en CSS - websites ontwerpen en bouwen (Dutch Edition) (01 editie). Amsterdam: Pearson Benelux. */
+    color: #807C7C;
+}
+
+main table tr td:nth-child(2) img {
+    width: 3em;
+    border-radius: 0.4em;
+    opacity: 0.9;
+    margin: .5em 1.5em .5em 0em;
+}
+
+main table th:not(:first-child) {
+    border-bottom: 0.1em solid #807C7C;
+    padding: 0.5em 0em 0.5em 0em;
+    border-spacing: .5em;
+}
+
+
+main table td:nth-child(2) {
+    display: flex;
+    align-items: center;
+}
+
+
+main table tr td:first-child img {
+    border-radius: none;
+    width: 2em;
+    margin: .5em;
+}
+
+main table td{
+    border-bottom: 0.01em solid #707070;
+}
+
+main table tr td:first-child,  main table tr td:first-child {
+
+    width: 3.5em;
+
+}
+
+
+
+/* drageventstyle via bron: https://webdevtrick.com/html-drag-and-drop-list/ */
+
+
+table .draggable {
+    will-change: transform;
+    background-color: white;
+    color: #807C7C;
+    font-size: 1.1em;
+    transition: all 200ms;
+    user-select: none;
+}
+
+table .draggable:after {
+    cursor: pointer;
+    transition: all 200ms;
+    transition-timing-function: cubic-bezier(0.48, 0.72, 0.62, 1.5);
+    transform: translateX(120%);
+    opacity: 0;
+}
+
+table .draggable:hover:after {
+    opacity: 1;
+    transform: translate(0);
+}
+
+
+
+/* ------------------------------- FOOTER ------------------------------- */
+
+
+
+footer {
+    background-color: #9B9999;
+    text-align: center;
+}
+
+footer p,
+footer p a {
+    color: white;
+}
+
+/* Bron: via https://css-tricks.com/couple-takes-sticky-footer/ bij kopje #there is grid */
+
+html {
+    height: 100%;
+    /* de hoogte van de html is 100%, de hele hoogte van de browser*/
+}
+
+body {
+    min-height: 100%;
+    /* de body heeft een minimale hoogte van 100% zodat de footer dus onderaan in de body staat, onderaan de browser */
+    display: grid;
+    grid-template-rows: 0fr auto;
+}
+
+.footer {
+    grid-row-start: 30;
+    /* de footer begint helemaal onderaan de browser en dus ook helemaal onderaan de rij */
+}

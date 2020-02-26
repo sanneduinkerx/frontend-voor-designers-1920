@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Frontend voor Designer - Opdracht 1 - Muziek Drag &amp; Drop</title>
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+    <header>
+
+        <img src="img/albumcover.jpg" alt="" draggable="false">
+
+        <section>
+
+            <h1> Your Favorite Mix </h1>
+            <p> All your favorite songs in one playlist. Listen and enjoy.</p>
+
+            <div>
+                <button>Play</button>
+                <button>shuffle</button>
+                <button> Edit </button>
+            </div>
+
+        </section>
+
+
+    </header>
+
+    <main>
+
+
+        <table>
+            <!-- bron: Duckett, J. (2012). HTML en CSS - websites ontwerpen en bouwen (Dutch Edition) (01 editie). Amsterdam: Pearson Benelux. -->
+
+            <tr>
+                <th> </th>
+                <th> Number </th>
+                <th> Artist</th>
+                <th> Time</th>
+
+
+            </tr>
+
+
+                <tr class="draggable" draggable="true">
+                    <!-- draggable:true van https://developer.mozilla.org/en-US/docs/Web/API/Document/drag_event-->
+
+                    <td><img src="img/sort.png" alt="" draggable="false"></td>
+                    <td> <img src="img/161.jpg" alt="" draggable="false"> Just a Girl </td>
+                    <td>No Doubt </td>
+                    <td> 3:29 </td>
+
+
+                </tr>
+
+            <tr class="draggable" draggable="true">
+
+                <td><img src="img/sort.png" alt="" draggable="false"></td>
+                <td> <img src="img/Pinkmotel.jpg" alt="" draggable="false"> Pink Motel </td>
+                <td>Alann8h </td>
+                <td> 3:52 </td>
+
+
+            </tr>
+
+            <tr class="draggable" draggable="true">
+
+                <td><img src="img/sort.png" alt="" draggable="false"></td>
+                <td> <img src="img/sunshine.jpg" alt="" draggable="false"> Sunshine </td>
+                <td>Khai Dreams </td>
+                <td> 2:47 </td>
+
+            </tr>
+
+            <tr class="draggable" draggable="true">
+               <td><img src="img/sort.png" alt="" draggable="false"></td>
+                <td> <img src="img/homeshook.jpg" alt="" draggable="false"> Homeshook </td>
+                <td>Potsu </td>
+                <td> 3:26 </td>
+
+            </tr>
+
+            <tr class="draggable" draggable="true">
+
+                <td><img src="img/sort.png" alt="" draggable="false"></td>
+                <td> <img src="img/honeywirew.jpg" alt="" draggable="false"> Be My Baby </td>
+                <td> HoneyWire </td>
+                <td> 3:12 </td>
+
+            </tr>
+
+        </table>
+
+
+
+    </main>
+
+    <footer class="footer">
+
+            <p>Sanne Duinker Frontend voor Designers 2020</p>
+        <p> <a href="bronnen.html">bronnen</a></p>
+
+
+    </footer>
+
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>
