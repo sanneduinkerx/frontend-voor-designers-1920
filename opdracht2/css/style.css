@@ -1,0 +1,79 @@
+body {
+    text-align: center;
+    box-sizing: border-box;
+    margin: 0;
+}
+
+header h1{
+    font-family: 'Amatic SC', cursive;
+    color:white;
+    margin: 0;
+    padding: 0.5em;
+    font-size: 3em;
+}
+
+body header {
+    background-color: #8798B1;
+    margin: 0;
+}
+
+section {
+    background-color: lightgray;
+    width: 67em;
+    height: 31.3em;
+    position: relative;
+    margin: auto;
+    margin-top: 4em;
+    overflow: hidden;
+}
+
+section div img{
+    height: 26em;
+    margin: 1.5em;
+/*    transform: rotate(90deg)*/
+}
+
+section div{
+    display: flex;
+    transition: 1s;
+}
+
+section button{
+    background-color: transparent;
+    border: none;
+    transition: 0.3s;
+    margin: 0;
+    padding: 0;
+}
+
+section button:focus{
+    opacity: 0.9;
+    outline: none;
+}
+
+section button img {
+    width: 7em;
+    position: absolute;
+    cursor: pointer;
+}
+
+.leftbutton img {
+    left: 1em;
+    bottom: 18em;
+    z-index: 100000;
+}
+
+.rightbutton img {
+
+    right: 1em;
+    bottom: 18em;
+    z-index: 100;
+}
+
+.volgende main section div {
+    transform:translateX(-23em);
+}
+
+.vorige main section div {
+    transform:translateX(0em);
+}
