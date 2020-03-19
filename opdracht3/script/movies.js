@@ -2,87 +2,80 @@
 /* eslint-env browser */
 /*eslint 'no-console':0 */
 
-// selecteert header in de html
+var section = document.querySelector('section'); // selecteert section element in html
 
-var header = document.querySelector('header');
+// ---------------------------------- json file aanvragen ------------------------------------------------------------------- //
 
-// selecteert de section in de html
+var requestURL = 'https://koopreynders.github.io/frontendvoordesigners/opdracht3/json/movies.json'; //de url van de json file
+var request = new XMLHttpRequest(); //aanvraag voor een api in de vorm van XMLHttpRequest
 
-var section = document.querySelector('section');
-
-//stap 1 - je maakt hier een variable aan om de json file, de url, op te halen
-
-var requestURL = 'https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json';
-
-//stap 2 - om de de jsonfile aan te vragen moet er een nieuwe aanvraag gemaakt worden met een API genoemd XMLHttpRequest
-
-var request = new XMLHttpRequest();
-
-// stap 3 - om de aanvraag te starten wordt 'open' gebruikt en haalt dan de variable van stap 1 op
-
-request.open('GET', requestURL);
-
-//stap 4 - opsturen en aanvragen van json file
-
-request.responseType = 'json'; // hierbij wordt tegen de opgehaalde variable gezegt dat het terug moeten worden gegeven als een json file
+request.open('GET', requestURL); //om de aanvraag te starten wordt .open gebruikt en wordt de var request opgehaalt en de URL
+request.responseType = 'json'; // hierbij wordt tegen de opgehaalde variable gezegt een json file is
 request.send(); //hiermee wordt de aanvraag opgestuurt
 
-//stap 5 - Laden, wachten op de file die van de server wordt gehaald, en dan er iets mee gaan doen
+// ----------------------------------- Gegevens laden van jsonfile en functie aanmaken --------------------------------------- //
 
-request.onload = function() {
-  var superHeroes = request.response; //var aanmaken SuperHeroes die wacht op de json file
-  populateHeader(superHeroes); // functie PopulateHeader wordt aangestuurt, zie stap 6 en geeft daarmee de jsonfile mee
-  showHeroes(superHeroes); // functie Showheroes wordt aangestuurt, zie stap 7 en geeft daarmee de json file mee
+request.onload = function () {
+    var films = request.response; //var aanmaken titles die wacht op aanvraag van de json file
+    ophalenfilms(films); //functie wordt gestart en de var wordt meegegeven
 }
 
-//Stap 6 - Header invullen
+//------------------------------------- HTML elementen vullen met gegevens uit JSON file -------------------------------------- //
 
-function populateHeader(jsonObj) {
-  var myH1 = document.createElement('h1'); // er wordt een var aangemaakt die een h1 element aanmaakt in de html
-  myH1.textContent = jsonObj['squadName']; //json file object dat squadname heet wordt aangevraagd
-  header.appendChild(myH1); //appendChild, voegt daarmee de SquadName, dat zo heet in de json file, toe aan de header onderaan
+function ophalenfilms(jsonObj) {
 
-  var myPara = document.createElement('p'); // maakt een var aan die een paragraaf element toevoegd aan de html
-  myPara.textContent = 'Hometown: ' + jsonObj['homeTown'] + ' // Formed: ' + jsonObj['formed']; //voegt in de p de 'hometown' toe die staat in de jsonfile samen met 'formed'
-  header.appendChild(myPara); //en voegt dit via hier toe aan de header
-}
+    var bestand = jsonObj; //
 
-// stap 7 - De rest van de body invullen
+    // -- loop herhaalt dit voor elk object in jsonfile
 
-function showHeroes(jsonObj) {
-  var heroes = jsonObj['members']; // maakt een var aan die de 'members' pakt vanuit de jsonfile
+    for (let i = 0; i < bestand.length; i++) {
 
-//for loop - per kolom wordt dit hetzelfde gedaan per Member zeg maar
+        //  -- aanmaken elementen binnen html section -- //
 
-  for (let i = 0; i < heroes.length; i++) {
-    var myArticle = document.createElement('article'); //in deze alinea worden elementen aangemaakt via een variable, een article, h2, p en een ul
-    var myH2 = document.createElement('h2');
-    var myPara1 = document.createElement('p');
-    var myPara2 = document.createElement('p');
-    var myPara3 = document.createElement('p');
-    var myList = document.createElement('ul');
+        var article = document.createElement('article'); //article aanmaken in html genaamd myArticle
+        var myDiv = document.createElement('div'); // div aanmaken in html
+        var title = document.createElement('h2'); //h2 in html aanmaken genaamd title
+        var cover = document.createElement('img'); //img in html aanmaken genaamd cover
+        var date = document.createElement('p'); //p aanmaken in html genaamd date
+        var genre = document.createElement('p'); //p aanmaken in html genaamd genre
+        var plot = document.createElement('p'); //p aanmaken in html genaamd plot
 
-    myH2.textContent = heroes[i].name; //de h2 bevat alle namen van de helden, en pakt dan 'name', i is daarbij het aantal namen die in de jsonfile staat
-    myPara1.textContent = 'Secret identity: ' + heroes[i].secretIdentity; //bij var paragraaf 1 wordt de secret Identity neergezet vanuit de json file en daarvoor staat de tekst 'Secret Identity'
-    myPara2.textContent = 'Age: ' + heroes[i].age; // pakt de 'age' uit jsonfile en zet er tekst voor
-    myPara3.textContent = 'Superpowers:'; // zet tekst neer bij paragraaf nummer 3
 
-    var superPowers = heroes[i].powers; // var aangemaakt genaamd SuperPowers, en haalt daarbij de 'powers' uit de jsonfile
+        // -- class toevoegen voor het veranderen van stijl -- //
 
-//for loop - SuperPowers
+        genre.classList.add('genre')
 
-    for (let j = 0; j < superPowers.length; j++) {
-      var listItem = document.createElement('li'); //var aangemaakt die aan de html een li element aanmaakt
-      listItem.textContent = superPowers[j]; //vult in de li de 'superpowers' vanuit de jsonfile in
-      myList.appendChild(listItem); //en voegt dit toe als listitem
+        // -- vullen html elementen -- //
+
+        cover.src = bestand[i].cover; //de img bron aangeven in de html file en haalt dit uit de json file
+        title.textContent = bestand[i].title; //de content van de h2 vullen, pakt daarmee de jsonfile en voegt daarom de gegevens toe die achter title staan in de json file
+        date.textContent = bestand[i].release_date.split(' ')[2]; //.split, opdelen met string patroon () de spatie ertussen, zodat het kan zien dat er 3 delen zijn. En dan kies het 3de item.
+        genre.textContent = bestand[i].genres;
+        plot.textContent = bestand[i].simple_plot;
+
+        // reviews - score gemiddelde pakken
+
+//        var reviews = bestand[i].reviews;
+//
+//
+//        int scoretot = 0;
+//        for (let i = 0; i < reviews.length; i++) {
+//            var score = reviews[i].score;
+//            scoretot += score.toint;
+//        }
+
+        //  -- plaatsen in html structuur, appendchild = voegt in article de img toe als child --
+
+        section.appendChild(article);
+
+        article.appendChild(cover);
+        article.appendChild(myDiv);
+
+        myDiv.appendChild(title);
+        myDiv.appendChild(date);
+        myDiv.appendChild(genre);
+        myDiv.appendChild(plot);
+
     }
 
-    myArticle.appendChild(myH2); //voegt dit toe binnen de article in de html
-    myArticle.appendChild(myPara1);
-    myArticle.appendChild(myPara2);
-    myArticle.appendChild(myPara3);
-    myArticle.appendChild(myList);
-
-    section.appendChild(myArticle); //voegt dit toe binnen de section
-  }
 }

@@ -1,0 +1,49 @@
+/* BODY */
+
+body {
+    font-family: 'Oxygen', sans-serif;
+}
+
+body {
+    margin: 0;
+    background-color: #242424;
+    color:white;
+}
+
+/* ------- HEADER ------- */
+
+header {
+    background-color: RGB(40, 43, 44);
+}
+
+
+header h1{
+    font-weight: 400;
+    color: white;
+    padding: .5em;
+}
+
+/* ------ MAIN ------ */
+
+img {
+    width: 18em;
+    height: 28em;
+}
+
+main {
+    margin-left: 9em;
+    margin-top: 4em;
+}
+
+/* - THE MOVIES - */
+
+
+main section  {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin: auto;
+}
+
+main section article {
+    width: 18em;
+}
