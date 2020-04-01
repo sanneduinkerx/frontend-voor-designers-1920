@@ -5,15 +5,18 @@ body {
 }
 
 html {
-    background-color: black;
+    background-color: #100e17;
 }
 
 body {
     margin: 0;
-    background: url(https://images.unsplash.com/photo-1512149074996-e923ac45be6a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80);
-    background-attachment: fixed; /* bron: https://www.w3schools.com/cssref/pr_background-attachment.asp */
-    background-size: cover; /* bron: https://css-tricks.com/almanac/properties/b/background-size/*/
-    color:white;
+    color: white;
+
+    /*  background: url(https://images.unsplash.com/photo-1471877325906-aee7c2240b5f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80);*/
+    /*    background-attachment: fixed;*/
+    /* bron: https://www.w3schools.com/cssref/pr_background-attachment.asp */
+    /*    background-size: cover;*/
+    /* bron: https://css-tricks.com/almanac/properties/b/background-size/*/
 }
 
 p {
@@ -24,57 +27,63 @@ p {
 
 
 
-header h1:first-child{
+header h1 {
     font-weight: 400;
     color: white;
-    padding: .5em;
-    font-size: 2.5em;
-     font-family:'Pacifico', cursive;
-    text-align: center;
+    padding: 0, .5em;
+    font-size: 2em;
+    font-family: 'Pacifico', cursive;
+    /*    text-align: center;*/
+    margin: 0;
 }
 
 
 header {
-/*    background-image: linear-gradient(to bottom right, #EE991A, #EC3059);  bron: https://www.w3schools.com/css/css3_gradients.asp*/
+    border-bottom: 1px solid #201c29;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
 
+
+}
+
+header img {
+    width: 3em;
+    height: 3em;
+    padding: .5em;
 }
 
 /* ------ MAIN ------ */
 
-img {
+main article img {
     width: 16em;
     height: 24em;
+    margin: auto;
 }
 
-main {
-    margin-left: 9em;
-}
-
-main section article h2, main section article p {
+main section article h2,
+main section article p {
     margin: .5em;
 }
 
-main section article {
-    margin: .5em;
-}
-
-main section {
-    margin: 1em;
-}
 
 /* - THE MOVIES - */
 
 
-main section  {
+main section {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     margin: auto;
+    margin: 1em;
+    justify-items: center;
 }
 
 main section article {
-    width: 16em;
+    width: 19em;
     transition: .5s;
     padding: 2em;
+    margin: .5em;
+    margin-bottom: .7em;
 
 }
 
@@ -82,15 +91,55 @@ main section article {
 
 .genre {
     background: linear-gradient(to bottom right, #EE991A, #EC3059);
+    /* bron: https://www.w3schools.com/css/css3_gradients.asp */
     padding: 1em;
     display: inline-block;
     border-radius: .2em;
 }
 
+/* wishlist button */
+main div img {
+    width: 4em;
+    position: fixed;
+    right: 4em;
+    bottom: 4em;
+    transition: .5s;
+}
+
+main div img:hover {
+    transform: scale(1.5, 1.5);
+    cursor: pointer;
+}
+
 /* hover */
 
 main section article:hover {
-    background-color: #2F2F2F;
-    transform: scale(1.05, 1.05);
+    background-color: #201c29;
+    /*    background-color: white;*/
+    transform: scale(1.02, 1.02);
     cursor: pointer;
+}
+
+/* scrollbar bron: https://www.w3schools.com/howto/howto_css_custom_scrollbar.asp */
+
+/* width */
+::-webkit-scrollbar {
+    width: 1em;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: none;
+    border: #201c29;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom right, #EE991A, #EC3059);
+    border-radius: .5em;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(to bottom right, #EE991A, #EC3059);
 }

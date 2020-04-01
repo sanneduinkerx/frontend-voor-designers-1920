@@ -2,6 +2,8 @@
 /* eslint-env browser */
 /*eslint 'no-console':0 */
 
+// ----------------------JSON FILE + elementen maken en vullen ---------------------------- //
+
 var section = document.querySelector('section'); // selecteert section element in html
 
 // ---------------------------------- json file aanvragen ------------------------------------------------------------------- //
@@ -39,6 +41,7 @@ function ophalenfilms(jsonObj) {
         var date = document.createElement('p'); //p aanmaken in html genaamd date
         var genre = document.createElement('p'); //p aanmaken in html genaamd genre
         var plot = document.createElement('p'); //p aanmaken in html genaamd plot
+        var meerInfo = document.createElement('button');
 
 
         // -- class toevoegen voor het veranderen van stijl -- //
@@ -79,3 +82,20 @@ function ophalenfilms(jsonObj) {
     }
 
 }
+
+// ----- wishlist ---- Bron: https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement/Image //
+
+
+var main = document.querySelector('main'); // selecteer de main om daarin de wishlist te plaatsen
+var divlist = document.createElement('div'); // maak een div aan
+
+var wishlist = new Image; // image aanmaken met een var
+wishlist.src = 'wishlist.png'; // de bron opgeven welke afbeelding
+
+main.appendChild(divlist); // toevoegen onderaan de main
+divlist.append(wishlist); // wishlist binnen div toevoegen
+
+divlist.classList.add('wishlist');
+
+// new thing
+
