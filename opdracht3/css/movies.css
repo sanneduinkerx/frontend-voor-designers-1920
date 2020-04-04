@@ -2,56 +2,106 @@
 
 body {
     font-family: 'Oxygen', sans-serif;
+    color: white;
 }
 
-html {
-    background-color: #100e17;
+* {
+    box-sizing: border-box;
+    /*de breedte is de hele breedte en hoef je niet meer uit te rekenen door margin en padding en border bij elkaar op te tellen dat zit er al in */
+    margin: 0;
 }
 
 body {
-    margin: 0;
-    color: white;
-
-    /*  background: url(https://images.unsplash.com/photo-1471877325906-aee7c2240b5f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80);*/
-    /*    background-attachment: fixed;*/
-    /* bron: https://www.w3schools.com/cssref/pr_background-attachment.asp */
-    /*    background-size: cover;*/
-    /* bron: https://css-tricks.com/almanac/properties/b/background-size/*/
+    background-color: #100e17;
 }
+
 
 p {
     font-size: 14px;
 }
 
+/* scrollbar bron: https://www.w3schools.com/howto/howto_css_custom_scrollbar.asp */
+
+/* width */
+::-webkit-scrollbar {
+    width: 1em;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: none;
+    /*    border: #201c29;*/
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom right, #EE991A, #EC3059);
+    border-radius: .5em;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(to bottom right, #EE991A, #EC3059);
+}
+
 /* ------- HEADER ------- */
-
-
 
 header h1 {
     font-weight: 400;
-    color: white;
-    padding: 0, .5em;
-    font-size: 2em;
+    /*    padding: 0.4em 0em;*/
+    font-size: 1.5em;
     font-family: 'Pacifico', cursive;
-    /*    text-align: center;*/
     margin: 0;
+    transition: .2s;
 }
 
 
 header {
     border-bottom: 1px solid #201c29;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-
-
 }
 
 header img {
-    width: 3em;
-    height: 3em;
+    width: 4em;
+    height: 4em;
     padding: .5em;
 }
+
+header section p {
+    color: white;
+}
+
+/* FLEXBOX */
+
+header,
+header div,
+header section {
+    display: flex;
+}
+
+header {
+    align-items: center;
+    justify-content: space-between;
+    padding: .5em 2em;
+}
+
+header div {
+    align-items: center;
+}
+
+
+/* DARKMODE + LIGHTMODE section thing */
+
+
+header section {
+    width: 8em;
+    height: 4em;
+    background: linear-gradient(to bottom right, #EE991A, #EC3059);
+    border-radius: .2em;
+    align-items: center;
+}
+
+
+
 
 /* ------ MAIN ------ */
 
@@ -72,20 +122,45 @@ main section article p {
 
 main section {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr;
     margin: auto;
     margin: 1em;
     justify-items: center;
+
 }
 
 main section article {
     width: 19em;
     transition: .5s;
-    padding: 2em;
+    padding: 1em;
     margin: .5em;
     margin-bottom: .7em;
-
 }
+
+/* responsive */
+
+@media (min-width: 45em) /* als de pagina groter dan 40em wordt dan gaat de css hier verder */{
+
+
+    main section {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    header h1 {
+    font-size: 2em;
+    }
+}
+
+@media (min-width: 70em) /* als de pagina groter dan 40em wordt dan gaat de css hier verder */{
+
+
+    main section {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+
+
 
 /* genre */
 
@@ -95,7 +170,9 @@ main section article {
     padding: 1em;
     display: inline-block;
     border-radius: .2em;
+    color: white;
 }
+
 
 /* wishlist button */
 main div img {
@@ -117,29 +194,50 @@ main section article:hover {
     background-color: #201c29;
     /*    background-color: white;*/
     transform: scale(1.02, 1.02);
+    /*    cursor: pointer;*/
+}
+
+
+/* Button - meer informatie */
+
+main section article button {
+    color: linear-gradient(to bottom right, #EE991A, #EC3059);
+    border: none;
+    background-color: transparent;
+    color: #EE991A;
+    font-size: 1em;
+    font-style: italic;
+    /*    transition: .8s;*/
+}
+
+main section article button:hover {
     cursor: pointer;
+    text-decoration-line: underline;
 }
 
-/* scrollbar bron: https://www.w3schools.com/howto/howto_css_custom_scrollbar.asp */
 
-/* width */
-::-webkit-scrollbar {
-    width: 1em;
+/* LIGHTMODE */
+
+.lightmode {
+    background-color: whitesmoke;
+    color: #100e17;
 }
 
-/* Track */
-::-webkit-scrollbar-track {
-    background: none;
-    border: #201c29;
+.lightmode header {
+    border-bottom: 1px solid white;
 }
 
-/* Handle */
-::-webkit-scrollbar-thumb {
-    background: linear-gradient(to bottom right, #EE991A, #EC3059);
-    border-radius: .5em;
+.lightmode main section article:hover {
+    background-color: white;
 }
 
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(to bottom right, #EE991A, #EC3059);
+
+
+/* ----- FOOTER ------ */
+
+footer p {
+    text-align: center;
+    padding: 1em;
+    font-size: .9em;
+    font-style: italic;
 }
