@@ -20,13 +20,20 @@ request.send(); //hiermee wordt de aanvraag opgestuurt
 request.onload = function () {
     var films = request.response; //var aanmaken titles die wacht op aanvraag van de json file
     ophalenfilms(films, 0, 2); //functie wordt gestart en de var wordt meegegeven, geeft daarbij ook een start en eind hoeveel films
+
 }
 
 //------------------------------------- HTML elementen vullen met gegevens uit JSON file -------------------------------------- //
 
 function ophalenfilms(jsonObj, start, eind) {
 
-    var bestand = jsonObj; //
+    var bestand = jsonObj;
+
+    var moreInfo;
+    var plot;
+
+    moreInfo= [document.createElement('button'),document.createElement('button'),document.createElement('button')];
+    plot = [document.createElement('p'),document.createElement('p'),document.createElement('p')]
 
     // -- loop herhaalt dit voor elk object in jsonfile - i= start, dus positie 0 en i is gelijk aan eind dus 2, daarbij worden de eerste 3 films geladen en erin gezet.
 
@@ -39,16 +46,15 @@ function ophalenfilms(jsonObj, start, eind) {
         var title = document.createElement('h2'); //h2 in html aanmaken genaamd title
         var cover = document.createElement('img'); //img in html aanmaken genaamd cover
         var date = document.createElement('p'); //p aanmaken in html genaamd date
-        var plot = document.createElement('p'); //p aanmaken in html genaamd plot
-        var moreInfo = document.createElement('button');
 
         // -- vullen html elementen -- //
 
         cover.src = bestand[i].cover; //de img bron aangeven in de html file en haalt dit uit de json file
         title.textContent = bestand[i].title; //de content van de h2 vullen, pakt daarmee de jsonfile en voegt daarom de gegevens toe die achter title staan in de json file
         date.textContent = bestand[i].release_date.split(' ')[2]; //.split, opdelen met string patroon () de spatie ertussen, zodat het kan zien dat er 3 delen zijn. En dan kies het 3de item.
-        plot.textContent = bestand[i].simple_plot;
-        moreInfo.innerHTML = '+ more details';
+
+        plot[i].textContent = bestand[i].simple_plot;
+        moreInfo[i].innerHTML = '+ more details';
 
         //  -- plaatsen in html structuur, appendchild = voegt in article de img toe als child --
 
@@ -56,7 +62,8 @@ function ophalenfilms(jsonObj, start, eind) {
 
         article.appendChild(cover);
         article.appendChild(myDiv);
-        article.appendChild(moreInfo);
+
+        article.appendChild(moreInfo[i]);
 
         myDiv.appendChild(title);
         myDiv.appendChild(date);
@@ -73,24 +80,21 @@ function ophalenfilms(jsonObj, start, eind) {
             myDiv.appendChild(genreElement); // voegt het toe aan de div
         });
 
-        myDiv.appendChild(plot);
+        myDiv.appendChild(plot[i]);
 
-        // UI event - Click, more details
-
-        moreInfo.addEventListener("click", show);
+        moreInfo[i].addEventListener("click", show);
         var clicked = false;
 
         function show() {
 
             if (!clicked) {
                 console.log('you clicked for more details');
-                plot.textContent = bestand[i].plot;
-                moreInfo.innerHTML = '- less details';
+                plot[i].textContent = bestand[i].plot;
+                moreInfo[i].innerHTML = '- less details';
                 clicked = true;
+//                moreInfo[i].addEventListener("click", hide);
             }
         }
-
-
 
 
     }
@@ -112,6 +116,22 @@ main.appendChild(divlist); // toevoegen onderaan de main
 divlist.append(wishlist); // wishlist binnen div toevoegen
 
 divlist.classList.add('wishlist');
+
+
+// ----------------------- GENRE FILTEREN -------------------//
+
+var genre = ['Thriller', 'Horror', 'Crime', 'Drama', 'Adventure', 'Action'];
+var vulButtons = document.querySelector('main div button p');
+
+for (let i = 0; i < genre.length; i++) {
+    vulButtons.innerHTML = genre[i];
+
+    vulButtons.addEventListener('click', filterGenre1);
+
+    function filterGenre1() {
+        console.log('you clicked on ' + genre[i]);
+    }
+}
 
 
 
@@ -193,11 +213,8 @@ function keypushedL() {
 };
 
 // UI EVENT - click, more details
-//
-//moreInfo.addEventListener("click", show);
-//
-//function show() {
-//    console.log('you clicked for more details');
-//}
+
+
+
 
 // ------------------------ UI STACK - STATES ---------------------------- //

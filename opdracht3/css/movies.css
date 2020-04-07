@@ -117,6 +117,18 @@ main section article p {
 }
 
 
+/* FILTER */
+
+main div:first-child button {
+    border: none;
+    background-color: transparent;
+    padding: 0em;
+    margin: .7em 1em;
+    cursor: pointer;
+}
+
+
+
 /* - THE MOVIES - */
 
 
@@ -139,7 +151,10 @@ main section article {
 
 /* responsive */
 
-@media (min-width: 45em) /* als de pagina groter dan 40em wordt dan gaat de css hier verder */{
+@media (min-width: 45em)
+
+/* als de pagina groter dan 40em wordt dan gaat de css hier verder */
+    {
 
 
     main section {
@@ -147,16 +162,23 @@ main section article {
     }
 
     header h1 {
-    font-size: 2em;
+        font-size: 2em;
     }
 }
 
-@media (min-width: 70em) /* als de pagina groter dan 40em wordt dan gaat de css hier verder */{
+@media (min-width: 70em)
+
+/* als de pagina groter dan 40em wordt dan gaat de css hier verder */
+    {
 
 
     main section {
         grid-template-columns: 1fr 1fr 1fr;
     }
+
+
+
+
 }
 
 
@@ -215,6 +237,24 @@ main section article button:hover {
     text-decoration-line: underline;
 }
 
+/*
+main section article div p:last-child {
+    display: none;
+}
+*/
+
+
+/* show details */
+
+/*
+main .showDetails article div p:last-child {
+    display: inline-block;
+}
+
+.showDetails .smallPlot {
+    display: none;
+}
+*/
 
 /* LIGHTMODE */
 
