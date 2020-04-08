@@ -149,6 +149,31 @@ main section article {
     margin-bottom: .7em;
 }
 
+/* hover */
+
+main section article:hover {
+    background-color: #201c29;
+    /*    background-color: white;*/
+    transform: scale(1.02, 1.02);
+    /*    cursor: pointer;*/
+}
+
+/* Button - meer informatie */
+
+main section article button {
+    color: linear-gradient(to bottom right, #EE991A, #EC3059);
+    border: none;
+    background-color: transparent;
+    color: #EE991A;
+    font-size: 1em;
+    font-style: italic;
+}
+
+main section article button:hover {
+    cursor: pointer;
+    text-decoration-line: underline;
+}
+
 /* responsive */
 
 @media (min-width: 45em)
@@ -175,16 +200,9 @@ main section article {
     main section {
         grid-template-columns: 1fr 1fr 1fr;
     }
-
-
-
-
 }
 
-
-
-
-/* genre */
+/* GENRE BUTTON */
 
 .genre {
     background: linear-gradient(to bottom right, #EE991A, #EC3059);
@@ -196,8 +214,8 @@ main section article {
 }
 
 
-/* wishlist button */
-main div img {
+/* WISHLIST BUTTON */
+main .wishlist img {
     width: 4em;
     position: fixed;
     right: 4em;
@@ -205,56 +223,11 @@ main div img {
     transition: .5s;
 }
 
-main div img:hover {
+main .wishlist img:hover {
     transform: scale(1.5, 1.5);
     cursor: pointer;
 }
 
-/* hover */
-
-main section article:hover {
-    background-color: #201c29;
-    /*    background-color: white;*/
-    transform: scale(1.02, 1.02);
-    /*    cursor: pointer;*/
-}
-
-
-/* Button - meer informatie */
-
-main section article button {
-    color: linear-gradient(to bottom right, #EE991A, #EC3059);
-    border: none;
-    background-color: transparent;
-    color: #EE991A;
-    font-size: 1em;
-    font-style: italic;
-    /*    transition: .8s;*/
-}
-
-main section article button:hover {
-    cursor: pointer;
-    text-decoration-line: underline;
-}
-
-/*
-main section article div p:last-child {
-    display: none;
-}
-*/
-
-
-/* show details */
-
-/*
-main .showDetails article div p:last-child {
-    display: inline-block;
-}
-
-.showDetails .smallPlot {
-    display: none;
-}
-*/
 
 /* LIGHTMODE */
 
@@ -271,6 +244,43 @@ main .showDetails article div p:last-child {
     background-color: white;
 }
 
+.loading
+
+
+/* LOADING STATE */
+
+body {
+    position: relative;
+}
+
+.overlay {
+    display: none;
+    background-color: #100e17;
+    position: absolute;
+    top: 0em;
+    bottom: 0em;
+    right: 0em;
+    left: 0em;
+}
+
+
+.loading body .overlay {
+    display: inline;
+}
+
+.loadinggif {
+    width: 20em;
+    position: sticky;
+     top: 15vw;
+     bottom: 10vw;
+     right: 10vw;
+     left: 39vw;
+}
+
+.loading ::-webkit-scrollbar{
+    width: 0em;
+    display:none;
+}
 
 
 /* ----- FOOTER ------ */

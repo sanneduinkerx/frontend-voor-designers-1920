@@ -21,7 +21,7 @@ request.onload = function () {
     var films = request.response; //var aanmaken titles die wacht op aanvraag van de json file
     ophalenfilms(films, 0, 2); //functie wordt gestart en de var wordt meegegeven, geeft daarbij ook een start en eind hoeveel films
 
-}
+};
 
 //------------------------------------- HTML elementen vullen met gegevens uit JSON file -------------------------------------- //
 
@@ -29,11 +29,10 @@ function ophalenfilms(jsonObj, start, eind) {
 
     var bestand = jsonObj;
 
-    var moreInfo;
-    var plot;
 
-    moreInfo= [document.createElement('button'),document.createElement('button'),document.createElement('button')];
-    plot = [document.createElement('p'),document.createElement('p'),document.createElement('p')]
+    //More details, aanmaken var en array voor in de loop: hulp en uitleg van Marco Duinker
+    var moreInfo = [document.createElement('button'), document.createElement('button'), document.createElement('button'), document.createElement('button'), document.createElement('button'), document.createElement('button')];
+    var plot = [document.createElement('p'), document.createElement('p'), document.createElement('p'), document.createElement('p'), document.createElement('p'), document.createElement('p')];
 
     // -- loop herhaalt dit voor elk object in jsonfile - i= start, dus positie 0 en i is gelijk aan eind dus 2, daarbij worden de eerste 3 films geladen en erin gezet.
 
@@ -53,7 +52,8 @@ function ophalenfilms(jsonObj, start, eind) {
         title.textContent = bestand[i].title; //de content van de h2 vullen, pakt daarmee de jsonfile en voegt daarom de gegevens toe die achter title staan in de json file
         date.textContent = bestand[i].release_date.split(' ')[2]; //.split, opdelen met string patroon () de spatie ertussen, zodat het kan zien dat er 3 delen zijn. En dan kies het 3de item.
 
-        plot[i].textContent = bestand[i].simple_plot;
+        plot[i].textContent = bestand[i].simple_plot; // plot[i] staat voor welke plaats in de array
+
         moreInfo[i].innerHTML = '+ more details';
 
         //  -- plaatsen in html structuur, appendchild = voegt in article de img toe als child --
@@ -82,20 +82,25 @@ function ophalenfilms(jsonObj, start, eind) {
 
         myDiv.appendChild(plot[i]);
 
+        // UI EVENT - CLICK more details -
+
         moreInfo[i].addEventListener("click", show);
-        var clicked = false;
 
         function show() {
 
-            if (!clicked) {
+
+            // bron if else statement: https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_read_more
+            if (plot[i].textContent === bestand[i].simple_plot) {
                 console.log('you clicked for more details');
                 plot[i].textContent = bestand[i].plot;
                 moreInfo[i].innerHTML = '- less details';
-                clicked = true;
-//                moreInfo[i].addEventListener("click", hide);
-            }
-        }
+            } else {
+                console.log('you clicked for less details');
+                plot[i].textContent = bestand[i].simple_plot;
+                moreInfo[i].innerHTML = '+ more details';
 
+            };
+        }
 
     }
 
@@ -110,7 +115,7 @@ var main = document.querySelector('main'); // selecteer de main om daarin de wis
 var divlist = document.createElement('div'); // maak een div aan
 
 var wishlist = new Image; // image aanmaken met een var
-wishlist.src = 'wishlist.png'; // de bron opgeven welke afbeelding
+wishlist.src = 'img/wishlist.png'; // de bron opgeven welke afbeelding
 
 main.appendChild(divlist); // toevoegen onderaan de main
 divlist.append(wishlist); // wishlist binnen div toevoegen
@@ -133,9 +138,38 @@ for (let i = 0; i < genre.length; i++) {
     }
 }
 
+// ------------------------ UI STACK - STATES ---------------------------- //
 
+//loading OKAY DOESNT WORK noted denk ik...  - bron: https://developer.mozilla.org/en-US/docs/Web/API/Document/readyState
 
+var html = document.querySelector('html');
+var body = document.querySelector('body');
 
+document.addEventListener('readystatechange', event => {
+  if (event.target.readyState === 'interactive') {
+    initLoader();
+  }
+  else if (event.target.readyState === 'complete') {
+//    initApp();
+    setTimeout(initApp, 2000);
+  }
+});
+
+function initLoader(){
+    html.classList.add('loading');
+    var imgGif = document.createElement('img');
+    var overlayBlock = document.createElement('div');
+    imgGif.src = "img/LOADING.gif";
+    body.appendChild(overlayBlock);
+    overlayBlock.appendChild(imgGif);
+    overlayBlock.classList.add('overlay')
+    imgGif.classList.add('loadinggif');
+}
+
+function initApp(){
+    html.classList.remove('loading');
+
+}
 
 // --------------------------- UI EVENTS -------------------------- //
 
@@ -168,11 +202,12 @@ function loadingContent() {
 
 // var aanmaken selecteren img en p in header
 var imgVullen = document.querySelector('header section img')
-var pVullen = document.querySelector('header section p')
+var pVullen = document.querySelector('header section p');
 
 // vullen van de content - automatisch darkmode, dus dit is default
 imgVullen.src = 'img/lightmode.png';
 pVullen.innerHTML = 'L - Key';
+
 
 window.addEventListener("keydown", event => {
 
@@ -212,9 +247,6 @@ function keypushedL() {
     document.querySelector('body').classList.add('lightmode');
 };
 
-// UI EVENT - click, more details
+//click event staat ergens anders bovenin
 
 
-
-
-// ------------------------ UI STACK - STATES ---------------------------- //
