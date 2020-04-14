@@ -76,7 +76,8 @@ function ophalenfilms(jsonObj, start, eind) {
 
             genreElement.textContent = genre; //vult de paragraaf met 1 genre
 
-            genreElement.classList.add('genre'); //geeft een class voor stijlen in css
+            genreElement.classList.add('genre'); //geeft een class voor stijlen in css - de gradient knop
+            article.classList.add(genre); // geeft per article een class welke genre het is
             myDiv.appendChild(genreElement); // voegt het toe aan de div
         });
 
@@ -133,16 +134,15 @@ var body = document.querySelector('body');
 // bron - readystatechange: https://developer.mozilla.org/en-US/docs/Web/API/Document/readyState //
 
 document.addEventListener('readystatechange', event => {
-  if (event.target.readyState === 'interactive') {
-    initLoader();
-  }
-  else if (event.target.readyState === 'complete') {
-//    initApp();
-    setTimeout(initApp, 2000); //bron: https://www.w3schools.com/js/js_timing.asp
-  }
+    if (event.target.readyState === 'interactive') {
+        initLoader();
+    } else if (event.target.readyState === 'complete') {
+        //    initApp();
+        setTimeout(initApp, 2000); //bron: https://www.w3schools.com/js/js_timing.asp
+    }
 });
 
-function initLoader(){
+function initLoader() {
     html.classList.add('loading');
     var imgGif = document.createElement('img');
     var overlayBlock = document.createElement('div');
@@ -153,7 +153,7 @@ function initLoader(){
     imgGif.classList.add('loadinggif');
 }
 
-function initApp(){
+function initApp() {
     html.classList.remove('loading');
 
 }
@@ -170,10 +170,11 @@ var eventGescrolled = false; //een var die false is, aangeven dat er nog niet ge
 
 function loadingContent() {
 
+//    var scrolled = window.scrollY;
+//    console.log(scrolled);
     console.log('you scrolled'); //in console zie je dat je gescrolled hebt
 
     // if statement - !: niet, alleen als de var evenGescrolled false(!) is wordt de if statement gestart en wordt er nieuwe content geladen daarna wordt de var true en bij opnieuw scrollen laadt hij niet nog eens de content
-
     if (!eventGescrolled) {
         var films = request.response;
         ophalenfilms(films, 3, 5); // functie ophalenfilms wordt gestart en vult de volgende 3 films aan
@@ -254,11 +255,28 @@ for (let i = 0; i < allGenres.length; i++) {
 
     buttonPositieGenre[i].addEventListener('click', filteren);
 
-    function filteren(){
+    function filteren() {
 
         console.log('you clicked ' + allGenres[i]);
+
+        //moet de andere 3 films inladen als er nog niet gescrolled is maar wel al wilt filteren
+        if (!eventGescrolled) {
+            var films = request.response;
+            ophalenfilms(films, 3, 5);
+            eventGescrolled = true;
+        };
+
+        // wat ik eerst wilde doen was dit hieronder, alleen hij pakt al de hele tijd sinds ik in javasript werlt geen querySelectorAll wat ik ook probeer het is al meerdere keren gebeurt.
+
+        //        var article1 = document.querySelectorAll('article.' + allGenres[i]);
+        //        article1.classList.add('show');
+        //        main.classList.add('hide');
+
+
+        // filteren fake ik nu dus door deze manier:
+
+        var selectSection = document.querySelector('main section');
+        selectSection.classList.toggle(allGenres[i] + 'Genre');
+        buttonPositieGenre[i].classList.toggle('buttonPushed');
     };
 };
-
-
-

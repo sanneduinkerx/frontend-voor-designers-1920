@@ -125,16 +125,59 @@ main h2 {
 
 main div:first-child button {
     border: none;
-    background-color: transparent;
-/*    padding: 0em;*/
     margin: .7em 1em;
     cursor: pointer;
+    transition: .2s;
 }
+
+main div:first-child button:hover {
+/*    font-style: italic;*/
+    transform: scale(1.1, 1.1);
+    font-weight: 600;
+}
+
 
 main div:first-child {
     text-align: center;
     margin: 0.5em;
 }
+
+main div .buttonPushed {
+    font-weight: 600;
+    padding: 1.6em;
+}
+
+/* -- Genres laten zien -- */
+
+.ThrillerGenre article:not(.Thriller) {
+    display: none;
+}
+
+.DramaGenre article:not(.Drama) {
+    display: none;
+}
+
+.ActionGenre article:not(.Action) {
+    display: none;
+}
+
+
+.AdventureGenre article:not(.Adventure) {
+    display: none;
+}
+
+
+.HorrorGenre article:not(.Horror) {
+    display: none;
+}
+
+
+.CrimeGenre article:not(.Crime) {
+    display: none;
+}
+
+
+
 
 /* - THE MOVIES - */
 
