@@ -2,16 +2,14 @@
 
 ![alt text](./img/F4Dsplash.png "Frontend voor Design Splash")
 
-In het vak Frontend voor Designers leer je hoe je met HTML, CSS en Javascript prototypes kunt maken om je ontwerpideeën te testen in een browser. We gaan animeren, responsive layouts uitproberen en interactie coderen ...
-
-
-Het vak bestaat uit 3 opdrachten:
-
-1. [Opdracht 1: Een Micro-interactie uitwerken en testen](opdracht1/)
-2. [Opdracht 2: Een interactie uitwerken voor verschillende gebruikers input](opdracht2/)
-3. [Opdracht 3: Een interactie uitwerken met externe data](opdracht3/)
-
+Voor het vak Frontend voor Designers heb ik verschillende prototypes gemaakt om ontwerpideeën te testen. Binnen de opdrachten heb ik veel geexperimenteert met de mogelijkheden van HTML, CSS en Javascript. En dingen geleerd over EventListeners voor interactie, een Api gebruiken en nadenken over de Design Principles.
 
 ---
-- [Markup cheat sheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
-- [Getting started with GitHub Pages](https://guides.github.com/features/pages/)
+
+De 3 gemaakte opdrachten:
+
+1. [Opdracht 1: Een Micro-interactie - Drag and Drop bij een muziekafspeellijst](opdracht1/)
+2. [Opdracht 2: Een interactie met verschillende input - Een carrousel met vakantie foto's](opdracht2/)
+3. [Opdracht 3: Een interactie met externe data - Een filmlijst met verschillende interacties](opdracht3/)
+
+

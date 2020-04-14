@@ -116,18 +116,25 @@ main section article p {
     margin: .5em;
 }
 
+main h2 {
+    font-size: 1.2em;
+}
+
 
 /* FILTER */
 
 main div:first-child button {
     border: none;
     background-color: transparent;
-    padding: 0em;
+/*    padding: 0em;*/
     margin: .7em 1em;
     cursor: pointer;
 }
 
-
+main div:first-child {
+    text-align: center;
+    margin: 0.5em;
+}
 
 /* - THE MOVIES - */
 

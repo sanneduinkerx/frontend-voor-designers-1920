@@ -31,7 +31,7 @@ function ophalenfilms(jsonObj, start, eind) {
 
 
     //More details, aanmaken var en array voor in de loop: hulp en uitleg van Marco Duinker
-    var moreInfo = [document.createElement('button'), document.createElement('button'), document.createElement('button'), document.createElement('button'), document.createElement('button'), document.createElement('button')];
+    var moreInfo = [document.createElement('button'), document.createElement('button'), document.createElement('button'), document.createElement('button'), document.createElement('button'), document.createElement('button')]; //array aanmaken gebeurt boven de loop, wordt aangemaakt zodat de browser het onderscheid weet tussen de knoppen en je zo per article meer info kan zien en niet dat je op 1 button drukt en alleen de laatste film het grote plot laat zien, wat ik eerst had XD
     var plot = [document.createElement('p'), document.createElement('p'), document.createElement('p'), document.createElement('p'), document.createElement('p'), document.createElement('p')];
 
     // -- loop herhaalt dit voor elk object in jsonfile - i= start, dus positie 0 en i is gelijk aan eind dus 2, daarbij worden de eerste 3 films geladen en erin gezet.
@@ -91,9 +91,10 @@ function ophalenfilms(jsonObj, start, eind) {
 
             // bron if else statement: https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_read_more
             if (plot[i].textContent === bestand[i].simple_plot) {
-                console.log('you clicked for more details');
-                plot[i].textContent = bestand[i].plot;
-                moreInfo[i].innerHTML = '- less details';
+                //als de plot content de kleine plot bevat voert hij deze functie uit, anders degene hieronder
+                console.log('you clicked for more details'); //laat in de console zien wat je doet
+                plot[i].textContent = bestand[i].plot; // vervangt de textcontent met de uitgebreide content
+                moreInfo[i].innerHTML = '- less details'; //verandert de button html naar less details voor het inklappen
             } else {
                 console.log('you clicked for less details');
                 plot[i].textContent = bestand[i].simple_plot;
@@ -110,7 +111,6 @@ function ophalenfilms(jsonObj, start, eind) {
 
 // Bron: https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement/Image //
 
-
 var main = document.querySelector('main'); // selecteer de main om daarin de wishlist te plaatsen
 var divlist = document.createElement('div'); // maak een div aan
 
@@ -123,27 +123,14 @@ divlist.append(wishlist); // wishlist binnen div toevoegen
 divlist.classList.add('wishlist');
 
 
-// ----------------------- GENRE FILTEREN -------------------//
-
-var genre = ['Thriller', 'Horror', 'Crime', 'Drama', 'Adventure', 'Action'];
-var vulButtons = document.querySelector('main div button p');
-
-for (let i = 0; i < genre.length; i++) {
-    vulButtons.innerHTML = genre[i];
-
-    vulButtons.addEventListener('click', filterGenre1);
-
-    function filterGenre1() {
-        console.log('you clicked on ' + genre[i]);
-    }
-}
-
 // ------------------------ UI STACK - STATES ---------------------------- //
 
-//loading OKAY DOESNT WORK noted denk ik...  - bron: https://developer.mozilla.org/en-US/docs/Web/API/Document/readyState
+//loading
 
 var html = document.querySelector('html');
 var body = document.querySelector('body');
+
+// bron - readystatechange: https://developer.mozilla.org/en-US/docs/Web/API/Document/readyState //
 
 document.addEventListener('readystatechange', event => {
   if (event.target.readyState === 'interactive') {
@@ -151,7 +138,7 @@ document.addEventListener('readystatechange', event => {
   }
   else if (event.target.readyState === 'complete') {
 //    initApp();
-    setTimeout(initApp, 2000);
+    setTimeout(initApp, 2000); //bron: https://www.w3schools.com/js/js_timing.asp
   }
 });
 
@@ -247,6 +234,31 @@ function keypushedL() {
     document.querySelector('body').classList.add('lightmode');
 };
 
-//click event staat ergens anders bovenin
+//click event staat bij functie ophalenfilms onderin
+
+// ----------------------- GENRE FILTEREN -------------------//
+
+var allGenres = ['Thriller', 'Drama', 'Action', 'Adventure', 'Horror', 'Crime']; //array met alle genres
+var buttonPositieGenre = [document.createElement('button'), document.createElement('button'), document.createElement('button'), document.createElement('button'), document.createElement('button'), document.createElement('button')]; //ik maak een array met de buttons aan zodat straks de browser weet op welke knop je drukt, anders ziet de browser geen onderscheid in de buttons
+
+for (let i = 0; i < allGenres.length; i++) {
+
+    var divContainer = document.querySelector('main div:first-child');
+    var genreName = document.createElement('p');
+
+    buttonPositieGenre[i].classList.add('genre', allGenres[i]);
+    genreName.innerHTML = allGenres[i];
+
+    divContainer.appendChild(buttonPositieGenre[i]);
+    buttonPositieGenre[i].appendChild(genreName);
+
+    buttonPositieGenre[i].addEventListener('click', filteren);
+
+    function filteren(){
+
+        console.log('you clicked ' + allGenres[i]);
+    };
+};
+
 
 

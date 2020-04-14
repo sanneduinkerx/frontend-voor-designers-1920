@@ -10,18 +10,11 @@
 <!--Werk daarna je ontwerp uit in HTML, CSS en JavaScript.-->
 
 
-<!--## Planning-->
-<!--1. Les 5: Briefing opdracht 3, API uitzoeken, tutorial doorlopen, schetsen en beginnen met coderen-->
-<!--2. Les 6: Eerste versie testen. Meenemen: breakdown-schets, JSON laden in de console, daarna in Javascript HTML elementen aanmaken, de data koppelen en toevoegen aan de DOM-->
-<!--3. Les 7: Demo presenteren-->
-<!--4. Les 8: Oplevering en beoordeling-->
-
-
 <!--## Criteria-->
-<!--1. De uitwerking van je ontwerp moet het doen in een browser en device naar keuze.-->
-<!--2. De data wordt van een externe bron ingeladen met Javascript.-->
-<!--3. Een aantal states van de [UI stack](https://www.scotthurff.com/posts/why-your-user-interface-is-awkward-youre-ignoring-the-ui-stack/) worden opgevangen en zijn vormgegeven.-->
-<!--4. In de demo maak je gebruik van meerdere [UI events](https://developer.mozilla.org/en-US/docs/Web/API/UIEvent) zodat gebruikers je ontwerp op verschillende manieren kunnen bedienen.-->
+<!--1. De uitwerking van je ontwerp moet het doen in een browser en device naar keuze. CHECK!-->
+<!--2. De data wordt van een externe bron ingeladen met Javascript. CHECK!-->
+<!--3. Een aantal states van de [UI stack](https://www.scotthurff.com/posts/why-your-user-interface-is-awkward-youre-ignoring-the-ui-stack/) worden opgevangen en zijn vormgegeven. 2 dus bijna zit op de helft, nog een kiezen-->
+<!--4. In de demo maak je gebruik van meerdere [UI events](https://developer.mozilla.org/en-US/docs/Web/API/UIEvent) zodat gebruikers je ontwerp op verschillende manieren kunnen bedienen. 3 ui events, dus CHECK!-->
 <!--5. In de demo dien je rekening te houden met de interface design principles 04, 08, 09 & 11 van [Principles of User Interface Design](http://bokardo.com/principles-of-user-interface-design/).-->
 <!--6. Je ontwerp is aantoonbaar getest en verbeterd. Verslaglegging en resultaat publiceren op Github-->
 
@@ -34,14 +27,16 @@
 
 # Opdracht 3 - Top Rated Movies
 
-Via deze opdracht heb ik een door middel van een JSON file informatie ingeladen in de HTML via Javascript. De JSON file die ik gebruikt heb is: https://koopreynders.github.io/frontendvoordesigners/opdracht3/json/movies.json. Op deze webbrowser die ik gemaakt heb staat een lijst van een aantal films, vormgeven in css. Op de site kan je meer informatie vinden per film en toevoegen aan je wishlist. (Daarnaast kan je nog filteren op genre.)
+Met deze opdracht heb ik een door middel van een JSON file informatie ingeladen in de HTML via Javascript. De JSON file die ik gebruikt heb is: https://koopreynders.github.io/frontendvoordesigners/opdracht3/json/movies.json. Op deze webbrowser die ik gemaakt  staat een lijst van een aantal films, vormgeven in css. Op de site kan je meer informatie vinden per film, filteren en er zit een functie bij waarbij je darkmode of lightmode kan kiezen.
 
 ## UI stack -States
 [UI stack](https://www.scotthurff.com/posts/why-your-user-interface-is-awkward-youre-ignoring-the-ui-stack/) worden opgevangen en zijn vormgegeven.
 
 ## UI events
 meerdere [UI events](https://developer.mozilla.org/en-US/docs/Web/API/UIEvent) zodat gebruikers je ontwerp op verschillende manieren kunnen bedienen.
-Click, keydown
+
+---
+De website bevat UI events, zoals het gebruiken van toetsenbord om van darkmode naar lightmode te gaan. Klikken op meer details en de genre knoppen bevatten een click event. En door middel van scrollen worden de andere 3 films geladen.
 
 ## principles
 de interface design principles 04, 08, 09 & 11 van [Principles of User Interface Design](http://bokardo.com/principles-of-user-interface-design/).
