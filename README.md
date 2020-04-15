@@ -1,4 +1,4 @@
-# Frontend voor Designers 1920
+# Frontend voor Designers 1920 - Sanne Duinker
 
 ![alt text](./img/F4Dsplash.png "Frontend voor Design Splash")
 

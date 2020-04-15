@@ -24,19 +24,29 @@
 <!--- Hier staat een [tutorial](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/JSON) voor het laden van JSON data en het aanmaken van HTMl elementen.-->
 <!--- Bij het laden van externe data kan de server verschillende [HTTP response status codes](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status) doorgeven, die kun je gebruiken om feedback te tonen.-->
 
+# Opdracht 3: Een interactie met externe data - Een filmlijst met verschillende interacties
 
-# Opdracht 3 - Top Rated Movies
-
-Met deze opdracht heb ik een door middel van een JSON file informatie ingeladen in de HTML via Javascript. De JSON file die ik gebruikt heb is: https://koopreynders.github.io/frontendvoordesigners/opdracht3/json/movies.json. Op deze webbrowser die ik gemaakt  staat een lijst van een aantal films, vormgeven in css. Op de site kan je meer informatie vinden per film, filteren en er zit een functie bij waarbij je darkmode of lightmode kan kiezen.
-
-## UI stack -States
-[UI stack](https://www.scotthurff.com/posts/why-your-user-interface-is-awkward-youre-ignoring-the-ui-stack/) worden opgevangen en zijn vormgegeven.
-
-## UI events
-meerdere [UI events](https://developer.mozilla.org/en-US/docs/Web/API/UIEvent) zodat gebruikers je ontwerp op verschillende manieren kunnen bedienen.
+Met deze opdracht heb ik een door middel van een JSON file informatie ingeladen in de HTML via Javascript. De JSON file die ik gebruikt heb is: https://koopreynders.github.io/frontendvoordesigners/opdracht3/json/movies.json. Op deze webbrowser die ik gemaakt  staat een lijst van een aantal films, vormgeven in css. Op de site kan je meer informatie vinden per film, filteren en er zit een functie bij waarbij je darkmode of lightmode kan kiezen. De webbrowser werkt het beste in Chrome via de laptop. Waar aan gedacht is binnen de website lees je hieronder.
 
 ---
-De website bevat UI events, zoals het gebruiken van toetsenbord om van darkmode naar lightmode te gaan. Klikken op meer details en de genre knoppen bevatten een click event. En door middel van scrollen worden de andere 3 films geladen.
 
-## principles
-de interface design principles 04, 08, 09 & 11 van [Principles of User Interface Design](http://bokardo.com/principles-of-user-interface-design/).
+## UI stack -States
+Een van de criteria hield in om een aantal state uit de ui stack vorm te geven en op te vangen. Ik heb hierbij gebruik gemaakt van de loading state, wanneer de json file wordt ingeladen. En de ideal state, waarbij je alle films ziet.
+
+## UI events
+De website bevat ook meerdere zodat gebruikers je ontwerp op verschillende manieren kunnen bedienen. Zoals het gebruiken van toetsenbord om van darkmode naar lightmode te gaan. Klikken op meer details en de genre knoppen bevatten een click event. En door middel van scrollen worden de andere 3 films geladen.
+
+## Design Principles
+Ik heb ook rekening gehouden met de interface design principles 04, 08, 09 & 11 van [Principles of User Interface Design](http://bokardo.com/principles-of-user-interface-design/). Deze houden in:
+
+4. Keep Users in Control
+Door aan de gebruiker te laten zien wat er gebeurt als je op de knop drukt. En dat de gebruiker weet wat er gebeurt. In het ontwerp komt dat terug, zoals gebruik van toetsenbord voor lightmode en darkmode. Er staat wat je moet doen en met een icoontje wordt aangegeven dat het dark- of lightmode wordt. Maar ook bij '+ more details' is duidelijk dat je meer details kan bekijken van de film.
+
+8. Provide a Natural Next Step
+Het zegt het al, zorg voor een natuurlijke volgende stap voor de gebruiker. Laat de gebruiker niet zitten bij een dead end. Binnen het ontwerp kan de gebruiker een overzicht zien van alle films, maar zodra de gebruiker wilt zoeken in een genre kan dat door middel van de filter knoppen bovenaan. De gebruiker kan altijd nog terug en alle films bekijken. Als de gebruiker daarna per film meer informatie wilt zien kan dat ook, de gebruiker kan altijd terug.
+
+9. Appearance follows Behaviour
+
+11. Strong Hierarchy Works Best
+
+

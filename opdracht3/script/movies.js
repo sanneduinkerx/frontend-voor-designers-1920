@@ -242,8 +242,6 @@ function keypushedL() {
 var allGenres = ['All', 'Thriller', 'Drama', 'Action', 'Adventure', 'Horror', 'Crime']; //array met alle genres
 var buttonPositieGenre = [document.createElement('button'), document.createElement('button'), document.createElement('button'), document.createElement('button'), document.createElement('button'), document.createElement('button'), document.createElement('button')]; //ik maak een array met de buttons aan zodat straks de browser weet op welke knop je drukt, anders ziet de browser geen onderscheid in de buttons
 
-//buttonPositieGenre[0].classList.add('buttonPushed');
-
 for (let i = 0; i < allGenres.length; i++) {
 
     var divContainer = document.querySelector('main div:first-child');
@@ -278,7 +276,5 @@ for (let i = 0; i < allGenres.length; i++) {
         }
         this.className += " buttonPushed"; //this. houdt in dat binnen deze functie en de gedrukte button daaraan de classname wordt toegevoegd
     };
-
-
 
 };
