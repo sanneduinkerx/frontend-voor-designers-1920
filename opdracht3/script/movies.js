@@ -239,8 +239,10 @@ function keypushedL() {
 
 // ----------------------- GENRE FILTEREN -------------------//
 
-var allGenres = ['Thriller', 'Drama', 'Action', 'Adventure', 'Horror', 'Crime']; //array met alle genres
-var buttonPositieGenre = [document.createElement('button'), document.createElement('button'), document.createElement('button'), document.createElement('button'), document.createElement('button'), document.createElement('button')]; //ik maak een array met de buttons aan zodat straks de browser weet op welke knop je drukt, anders ziet de browser geen onderscheid in de buttons
+var allGenres = ['All', 'Thriller', 'Drama', 'Action', 'Adventure', 'Horror', 'Crime']; //array met alle genres
+var buttonPositieGenre = [document.createElement('button'), document.createElement('button'), document.createElement('button'), document.createElement('button'), document.createElement('button'), document.createElement('button'), document.createElement('button')]; //ik maak een array met de buttons aan zodat straks de browser weet op welke knop je drukt, anders ziet de browser geen onderscheid in de buttons
+
+//buttonPositieGenre[0].classList.add('buttonPushed');
 
 for (let i = 0; i < allGenres.length; i++) {
 
@@ -252,11 +254,9 @@ for (let i = 0; i < allGenres.length; i++) {
 
     divContainer.appendChild(buttonPositieGenre[i]);
     buttonPositieGenre[i].appendChild(genreName);
-
     buttonPositieGenre[i].addEventListener('click', filteren);
 
     function filteren() {
-
         console.log('you clicked ' + allGenres[i]);
 
         //moet de andere 3 films inladen als er nog niet gescrolled is maar wel al wilt filteren
@@ -266,17 +266,19 @@ for (let i = 0; i < allGenres.length; i++) {
             eventGescrolled = true;
         };
 
-        // wat ik eerst wilde doen was dit hieronder, alleen hij pakt al de hele tijd sinds ik in javasript werlt geen querySelectorAll wat ik ook probeer het is al meerdere keren gebeurt.
-
-        //        var article1 = document.querySelectorAll('article.' + allGenres[i]);
-        //        article1.classList.add('show');
-        //        main.classList.add('hide');
-
-
-        // filteren fake ik nu dus door deze manier:
-
         var selectSection = document.querySelector('main section');
-        selectSection.classList.toggle(allGenres[i] + 'Genre');
-        buttonPositieGenre[i].classList.toggle('buttonPushed');
+        selectSection.className = allGenres[i] + 'Genre'; //bron: https://www.w3schools.com/jsref/prop_html_classname.asp
+
+        //bron: https://www.w3schools.com/howto/howto_js_active_element.asp
+
+        var active = document.getElementsByClassName('buttonPushed');
+
+        if (active.length > 0) {
+            active[0].className = active[0].className.replace(" buttonPushed", "");
+        }
+        this.className += " buttonPushed"; //this. houdt in dat binnen deze functie en de gedrukte button daaraan de classname wordt toegevoegd
     };
+
+
+
 };

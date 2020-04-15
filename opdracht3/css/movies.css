@@ -149,10 +149,15 @@ main div .buttonPushed {
 
 /* -- Genres laten zien -- */
 
-.ThrillerGenre article:not(.Thriller) {
+.ThrillerGenre article:not(.Thriller), .DramaGenre article:not(.Drama), .AdventureGenre article:not(.Adventure), .ActionGenre article:not(.Action), .HorrorGenre article:not(.Horror), .CrimeGenre article:not(.Crime) {
     display: none;
 }
 
+.AllGenre article {
+    display: inline;
+}
+
+/*
 .DramaGenre article:not(.Drama) {
     display: none;
 }
@@ -175,6 +180,7 @@ main div .buttonPushed {
 .CrimeGenre article:not(.Crime) {
     display: none;
 }
+*/
 
 
 
