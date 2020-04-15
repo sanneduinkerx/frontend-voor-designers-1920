@@ -30,6 +30,10 @@ Met deze opdracht heb ik een door middel van een JSON file informatie ingeladen 
 
 ---
 
+## Verslaglegging
+Ik begon eerst met het maken van een breakdown schets:
+![alt text](./img/breakdownschets.jpeg "Breakdown schets")
+
 ## UI stack -States
 Een van de criteria hield in om een aantal state uit de ui stack vorm te geven en op te vangen. Ik heb hierbij gebruik gemaakt van de loading state, wanneer de json file wordt ingeladen. En de ideal state, waarbij je alle films ziet.
 
