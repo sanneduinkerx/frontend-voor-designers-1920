@@ -170,8 +170,8 @@ var eventGescrolled = false; //een var die false is, aangeven dat er nog niet ge
 
 function loadingContent() {
 
-//    var scrolled = window.scrollY;
-//    console.log(scrolled);
+    //    var scrolled = window.scrollY;
+    //    console.log(scrolled);
     console.log('you scrolled'); //in console zie je dat je gescrolled hebt
 
     // if statement - !: niet, alleen als de var evenGescrolled false(!) is wordt de if statement gestart en wordt er nieuwe content geladen daarna wordt de var true en bij opnieuw scrollen laadt hij niet nog eens de content
