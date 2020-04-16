@@ -157,34 +157,6 @@ main div .buttonPushed {
     display: inline;
 }
 
-/*
-.DramaGenre article:not(.Drama) {
-    display: none;
-}
-
-.ActionGenre article:not(.Action) {
-    display: none;
-}
-
-
-.AdventureGenre article:not(.Adventure) {
-    display: none;
-}
-
-
-.HorrorGenre article:not(.Horror) {
-    display: none;
-}
-
-
-.CrimeGenre article:not(.Crime) {
-    display: none;
-}
-*/
-
-
-
-
 /* - THE MOVIES - */
 
 
@@ -209,9 +181,7 @@ main section article {
 
 main section article:hover {
     background-color: #201c29;
-    /*    background-color: white;*/
     transform: scale(1.02, 1.02);
-    /*    cursor: pointer;*/
 }
 
 /* Button - meer informatie */
@@ -281,7 +251,7 @@ main .wishlist img {
 
 main .wishlist img:hover {
     transform: scale(1.5, 1.5);
-    cursor: pointer;
+/*    cursor: pointer;*/
 }
 
 

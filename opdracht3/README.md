@@ -33,6 +33,7 @@ Met deze opdracht heb ik een door middel van een JSON file informatie ingeladen 
 ## Verslaglegging
 Ik begon eerst met het maken van een breakdown schets:
 ![alt text](./img/breakdownschets.jpeg "Breakdown schets")
+Om te beginnen met het verder schrijven van code, hoe ik alles in elementen moest zetten etc. Daarna ging ik aan de slag met het toevoegen van interacties zoals het switchen van darkmode naar lightmode, more details per film en filteren dat ik er later bij heb gedaan. Dit heb ik ook weer eerst gedaan door te schetsen wat ik precies wilde en zo ook eerst code geschreven om te kijken of het werkte met wel wat tegenslagen natuurlijk is het uiteindelijk wel gelukt om het meeste neer te zetten wat ik wilde. Ik heb alleen geen tijd meer gehad om de wishlist te laten werken (misschien ene projectje voor later). Wat ik wel jammer vind omdat dat eigenlijk mijn eerste stap was maar ik eerts met 'more details' aan de gang ging omdat dat toch wat makkelijker was om dat eerst te laten werken. Ik had ook nog graag een error state willen toevoegen maar ik wist niet zo goed hoe ik dat moest doen, maar ik ben wel trots hoe ik de loading state heb laten werken.
 
 ## UI stack -States
 Een van de criteria hield in om een aantal state uit de ui stack vorm te geven en op te vangen. Ik heb hierbij gebruik gemaakt van de loading state, wanneer de json file wordt ingeladen. En de ideal state, waarbij je alle films ziet.
@@ -43,14 +44,16 @@ De website bevat ook meerdere zodat gebruikers je ontwerp op verschillende manie
 ## Design Principles
 Ik heb ook rekening gehouden met de interface design principles 04, 08, 09 & 11 van [Principles of User Interface Design](http://bokardo.com/principles-of-user-interface-design/). Deze houden in:
 
-4. Keep Users in Control
+### 4. Keep Users in Control
 Door aan de gebruiker te laten zien wat er gebeurt als je op de knop drukt. En dat de gebruiker weet wat er gebeurt. In het ontwerp komt dat terug, zoals gebruik van toetsenbord voor lightmode en darkmode. Er staat wat je moet doen en met een icoontje wordt aangegeven dat het dark- of lightmode wordt. Maar ook bij '+ more details' is duidelijk dat je meer details kan bekijken van de film.
 
-8. Provide a Natural Next Step
+### 8. Provide a Natural Next Step
 Het zegt het al, zorg voor een natuurlijke volgende stap voor de gebruiker. Laat de gebruiker niet zitten bij een dead end. Binnen het ontwerp kan de gebruiker een overzicht zien van alle films, maar zodra de gebruiker wilt zoeken in een genre kan dat door middel van de filter knoppen bovenaan. De gebruiker kan altijd nog terug en alle films bekijken. Als de gebruiker daarna per film meer informatie wilt zien kan dat ook, de gebruiker kan altijd terug.
 
-9. Appearance follows Behaviour
+### 9. Appearance follows Behaviour
+Hierbij moet een element eruit zien zoals het zou moeten werken. Zo ziet een knop eruit als een knop, een link eruit als een link. Binnen het ontwerp is dat ook toegepast, de filterknoppen zien eruit als knoppen en als je eroverheen gaat met je cursor wordt het groter en de cursor wordt een pointer.
 
-11. Strong Hierarchy Works Best
 
+### 11. Strong Hierarchy Works Best
+Hierbij zorg je erover dat er verschil is in wat het belangrijkste is, waar je op focust etc. Zo is de afbeelding van de film heel groot en daaronder op volgorde titel, jaar, genre en plot. Op volgorde van meest belangrijk.
 
